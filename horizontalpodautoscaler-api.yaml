@@ -1,0 +1,99 @@
+﻿kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2
+metadata:
+  name: api
+  namespace: piloto-portal-cidadao
+  uid: 2cc25be7-53f9-432d-aa9a-1b2a01f61981
+  resourceVersion: '92645424'
+  creationTimestamp: '2025-03-27T19:26:22Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: autoscaling/v2
+      time: '2025-04-08T14:11:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:maxReplicas': {}
+          'f:metrics': {}
+          'f:minReplicas': {}
+          'f:scaleTargetRef':
+            'f:apiVersion': {}
+            'f:kind': {}
+            'f:name': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: autoscaling/v2
+      time: '2025-05-13T13:43:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"AbleToScale"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"ScalingActive"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"ScalingLimited"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:currentMetrics': {}
+          'f:currentReplicas': {}
+          'f:desiredReplicas': {}
+          'f:lastScaleTime': {}
+      subresource: status
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: api
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 50
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+status:
+  lastScaleTime: '2025-04-29T16:49:32Z'
+  currentReplicas: 1
+  desiredReplicas: 1
+  currentMetrics:
+    - type: Resource
+      resource:
+        name: cpu
+        current:
+          averageValue: 154m
+          averageUtilization: 15
+  conditions:
+    - type: AbleToScale
+      status: 'True'
+      lastTransitionTime: '2025-03-27T19:26:37Z'
+      reason: ReadyForNewScale
+      message: recommended size matches current size
+    - type: ScalingActive
+      status: 'True'
+      lastTransitionTime: '2025-04-30T13:18:53Z'
+      reason: ValidMetricFound
+      message: the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+    - type: ScalingLimited
+      status: 'False'
+      lastTransitionTime: '2025-05-13T13:34:04Z'
+      reason: DesiredWithinRange
+      message: the desired count is within the acceptable range

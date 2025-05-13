@@ -1,0 +1,98 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: portal-cidadao
+  namespace: piloto-portal-cidadao
+  uid: 35f927ef-0fa8-4a44-8e0a-d578cbdba26c
+  resourceVersion: '81101834'
+  creationTimestamp: '2025-03-18T15:18:17Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2025-04-29T17:25:04Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          'f:eatureManagement__Push': {}
+          'f:Services__Comunic': {}
+          'f:QueueConfig__SMSQueueName': {}
+          'f:Services__SolicitarAcessoSistema': {}
+          'f:Services__UrlOctopus': {}
+          'f:BibliotecaDigital__ApiKey': {}
+          'f:ElasticApm__ServiceName': {}
+          'f:FeatureManagement__Empresa': {}
+          'f:ElasticApm__ServerUrls': {}
+          'f:BibliotecaDigital__ClientId': {}
+          'f:ForumConhecimento__Client': {}
+          'f:Tarja__Show': {}
+          'f:ASPNETCORE_ENVIRONMENT': {}
+          'f:MongoDbSettings__DatabaseName': {}
+          'f:Services__Api': {}
+          'f:FeatureManagement__CNPJ': {}
+          'f:FeatureManagement__ManagingUnit': {}
+          .: {}
+          'f:FeatureManagement__Comunic': {}
+          'f:FeatureManagement__Client': {}
+          'f:FeatureManagement__User': {}
+          'f:MongoDbSettings__ConnectionString': {}
+          'f:ForumConhecimento__Iss': {}
+          'f:BibliotecaDigital__Url': {}
+          'f:ASPNETCORE_URLS': {}
+          'f:Services__Authority': {}
+          'f:FeatureManagement__Certificate': {}
+          'f:QueueConfig__HostName': {}
+          'f:Services__ComunicWeb': {}
+          'f:GovBr__logout': {}
+          'f:ForumConhecimento__Url': {}
+          'f:ElasticApm__Environment': {}
+          'f:Services__AgendaWeb': {}
+          'f:FeatureManagement__Quote': {}
+          'f:ervices__ReceitaFederal': {}
+          'f:AgendaDeContas__ClientName': {}
+          'f:Services__AgendaApi': {}
+          'f:QueueConfig__TelegramQueueName': {}
+          'f:Services__Certidao': {}
+          'f:Services__PceCore': {}
+          'f:QueueConfig__EmailQueueName': {}
+data:
+  ForumConhecimento__Url: 'https://www.forumconhecimento.com.br/'
+  FeatureManagement__Quote: 'true'
+  MongoDbSettings__ConnectionString: 'mongodb://octopus:9c2649b16d37caf29845@10.83.0.62:27017?authSource=admin'
+  FeatureManagement__User: 'true'
+  FeatureManagement__Client: 'true'
+  Services__Authority: 'https://identity-piloto-portal-cidadao.tcero.tc.br'
+  ASPNETCORE_URLS: 'http://+:8080'
+  QueueConfig__HostName: rabbit-cluster.tcero.tc.br
+  AgendaDeContas__ClientName: Agenda de Contas
+  QueueConfig__TelegramQueueName: telegram_queue_prod
+  GovBr__logout: 'https://sso.acesso.gov.br/logout'
+  Services__AgendaWeb: 'https://agendadecontas.tcero.tc.br'
+  ElasticApm__Environment: production
+  Services__Certidao: 'https://tcero.tc.br/certidao/validarconsulta.asp'
+  eatureManagement__Push: 'true'
+  ervices__ReceitaFederal: 'http://api.tce.ro.gov.br'
+  Services__UrlOctopus: 'https://piloto-portal-cidadao.tcero.tc.br'
+  Services__SolicitarAcessoSistema: 'https://jira.tcero.tc.br/servicedesk/customer/portal/1/create/144/'
+  ElasticApm__ServerUrls: 'http://srv-elastic-apm.tcero.tc.br:8200'
+  FeatureManagement__Empresa: 'False'
+  Services__AgendaApi: 'https://agenda-contas-api.tcero.tc.br'
+  ASPNETCORE_ENVIRONMENT: Production
+  QueueConfig__EmailQueueName: email_queue_prod
+  Services__PceCore: 'http://intranet/pcecore/api'
+  QueueConfig__SMSQueueName: sms_queue_prod
+  Services__Comunic: 'https://comunicworker.tcero.tc.br'
+  BibliotecaDigital__ApiKey: 2a489cd5-33d0-4d9f-81cf-b054d182b59f
+  ElasticApm__ServiceName: papyrus-prod
+  BibliotecaDigital__ClientId: be9659d6-8c24-44b1-87c5-122801757efa
+  ForumConhecimento__Client: tcerondonia
+  Tarja__Show: 'false'
+  MongoDbSettings__DatabaseName: Octopus
+  FeatureManagement__Comunic: 'false'
+  Services__Api: 'https://api-piloto-portal-cidadao.tcero.tc.br'
+  ForumConhecimento__Iss: 'https://tcero.tc.br'
+  BibliotecaDigital__Url: 'https://integracao.dli.minhabiblioteca.com.br/DigitalLibraryIntegrationService/'
+  FeatureManagement__CNPJ: 'false'
+  FeatureManagement__Certificate: 'true'
+  Services__ComunicWeb: 'https://comunic.tcero.tc.br'
+  FeatureManagement__ManagingUnit: 'true'
