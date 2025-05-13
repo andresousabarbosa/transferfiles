@@ -1,0 +1,244 @@
+﻿kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '42'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"identity"},"name":"identity","namespace":"piloto-portal-cidadao"},"spec":{"replicas":0,"selector":{"matchLabels":{"app.kubernetes.io/name":"identity"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app.kubernetes.io/name":"identity"}},"spec":{"containers":[{"env":[{"name":"ASPNETCORE_ENVIRONMENT","value":"Production"}],"envFrom":[{"secretRef":{"name":"identity"}}],"image":"registry.tce.ro.gov.br/$PROJETO:$TAG","name":"identity","resources":{"limits":{"cpu":"2","memory":"1Gi"},"requests":{"cpu":"250m","memory":"50Mi"}}}],"restartPolicy":"Always"}},"test":false,"triggers":[{"type":"ConfigChange"},{"imageChangeParams":{"automatic":true,"containerNames":["identity"],"from":{"kind":"ImageStreamTag","name":"identity:$TAG"}},"type":"ImageChange"}]}}
+  resourceVersion: '89467136'
+  name: identity
+  uid: 26680e7b-4977-47ed-91c0-f93a184ff533
+  creationTimestamp: '2025-03-18T17:30:22Z'
+  generation: 262
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-03-18T17:30:22Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/name': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/name': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"identity"}':
+                  .: {}
+                  'f:env': {}
+                  'f:name': {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-04-15T16:29:45Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:openshift.openshift.io/restartedAt': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"identity"}':
+                  'f:env':
+                    'k:{"name":"ASPNETCORE_Kestrel__Certificates__Default__Password"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef': {}
+                  'f:envFrom': {}
+                  'f:image': {}
+                  'f:imagePullPolicy': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:tcpSocket':
+                      .: {}
+                      'f:port': {}
+                    'f:timeoutSeconds': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:tcpSocket':
+                      .: {}
+                      'f:port': {}
+                    'f:timeoutSeconds': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/app/.aspnet/https"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"identity-volume"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:secretName': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-05-09T17:39:08Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: piloto-portal-cidadao
+  labels:
+    app.kubernetes.io/name: identity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: identity
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: identity
+      annotations:
+        openshift.openshift.io/restartedAt: '2025-04-15T16:00:00.850Z'
+    spec:
+      volumes:
+        - name: identity-volume
+          secret:
+            secretName: identity-certificate
+            defaultMode: 420
+      containers:
+        - resources:
+            limits:
+              cpu: '2'
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 50Mi
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: identity
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 15
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+              valueFrom:
+                secretKeyRef:
+                  name: identity
+                  key: secret_certificate
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: identity-volume
+              mountPath: /app/.aspnet/https
+          terminationMessagePolicy: File
+          envFrom:
+            - secretRef:
+                name: identity
+            - configMapRef:
+                name: identity
+          image: 'image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/identity:development'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 262
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-04-15T16:29:48Z'
+      lastTransitionTime: '2025-04-15T16:29:45Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "identity-db6ffd96" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-05-09T17:33:25Z'
+      lastTransitionTime: '2025-05-09T17:33:25Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
