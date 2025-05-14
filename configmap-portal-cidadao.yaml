@@ -1,0 +1,49 @@
+apiVersion: v1
+data:
+  ASPNETCORE_ENVIRONMENT: Production
+  ASPNETCORE_URLS: http://+:8080
+  AgendaDeContas__ClientName: Agenda de Contas
+  BibliotecaDigital__ApiKey: 2a489cd5-33d0-4d9f-81cf-b054d182b59f
+  BibliotecaDigital__ClientId: be9659d6-8c24-44b1-87c5-122801757efa
+  BibliotecaDigital__Url: https://integracao.dli.minhabiblioteca.com.br/DigitalLibraryIntegrationService/
+  ElasticApm__Environment: production
+  ElasticApm__ServerUrls: http://srv-elastic-apm.tcero.tc.br:8200
+  ElasticApm__ServiceName: papyrus-prod
+  FeatureManagement__CNPJ: "false"
+  FeatureManagement__Certificate: "true"
+  FeatureManagement__Client: "true"
+  FeatureManagement__Comunic: "false"
+  FeatureManagement__Empresa: "False"
+  FeatureManagement__ManagingUnit: "true"
+  FeatureManagement__Quote: "true"
+  FeatureManagement__User: "true"
+  ForumConhecimento__Client: tcerondonia
+  ForumConhecimento__Iss: https://tcero.tc.br
+  ForumConhecimento__Url: https://www.forumconhecimento.com.br/
+  GovBr__logout: https://sso.acesso.gov.br/logout
+  MongoDbSettings__ConnectionString: mongodb://octopus:9c2649b16d37caf29845@10.83.0.62:27017?authSource=admin
+  MongoDbSettings__DatabaseName: Octopus
+  QueueConfig__EmailQueueName: email_queue_prod
+  QueueConfig__HostName: rabbit-cluster.tcero.tc.br
+  QueueConfig__SMSQueueName: sms_queue_prod
+  QueueConfig__TelegramQueueName: telegram_queue_prod
+  Services__AgendaApi: https://agenda-contas-api.tcero.tc.br
+  Services__AgendaWeb: https://agendadecontas.tcero.tc.br
+  Services__Api: https://api-piloto-portal-cidadao.tcero.tc.br
+  Services__Authority: https://identity-piloto-portal-cidadao.tcero.tc.br
+  Services__Certidao: https://tcero.tc.br/certidao/validarconsulta.asp
+  Services__Comunic: https://comunicworker.tcero.tc.br
+  Services__ComunicWeb: https://comunic.tcero.tc.br
+  Services__PceCore: http://intranet/pcecore/api
+  Services__SolicitarAcessoSistema: https://jira.tcero.tc.br/servicedesk/customer/portal/1/create/144/
+  Services__UrlOctopus: https://piloto-portal-cidadao.tcero.tc.br
+  Tarja__Show: "false"
+  eatureManagement__Push: "true"
+  ervices__ReceitaFederal: http://api.tce.ro.gov.br
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-03-18T15:18:17Z"
+  name: portal-cidadao
+  namespace: piloto-portal-cidadao
+  resourceVersion: "81101834"
+  uid: 35f927ef-0fa8-4a44-8e0a-d578cbdba26c

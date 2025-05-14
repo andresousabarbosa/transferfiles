@@ -1,0 +1,63 @@
+apiVersion: v1
+data:
+  ASPNETCORE_ENVIRONMENT: Production
+  ASPNETCORE_URLS: http://+:8080
+  ActiveHealtcheck: "false"
+  ActiveHealtcheckEndPoint: "False"
+  ConnectionStrings__Aplic: Server=srv-sql-prod-01.tcero.local;Database=Aplic;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Certidao: Server=srv-sql-prod-01.tcero.local;Database=Certidao;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__DadosIntegrados: Server=srv-sql-prod-01.tcero.local;Database=DadosIntegrados;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Debito: Server=srv-sql-prod-01.tcero.local;Database=Debito;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Detran: Server=srv-sql-prod-01.tcero.local;Database=Detran;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Esic: Server=srv-sql-prod-01.tcero.local;Database=Esic;User Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Guardiao: Server=srv-sql-prod-01.tcero.local;Database=Guardiao;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Identity: Server=srv-sql-prod-01.tcero.local;Database=Identity;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Legislacao: Server=srv-sql-prod-01.tcero.local;Database=Legislacao;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__MetasSetic: Server=srv-sql-prod-01.tcero.local;Database=MetasSetic;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__OrdemCronologica: Server=srv-sql-prod-01.tcero.local;Database=OrdemCronologica;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__PCE: Host=srv-dev-db-01.tcero.local;Port=5432;Pooling=true;Database=_ontem_tramitadb;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU
+  ConnectionStrings__PortalCidadao: Server=srv-sql-prod-01.tcero.local;Database=PortalCidadao;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Protocolo: Server=srv-sql-prod-01.tcero.local;Database=Protocolo;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__ReceitaFederal: Server=srv-sql-prod-01.tcero.local;Database=ReceitaFederal;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__SEI: Server=srv-sql-prod-01.tcero.local;Database=SEI4;User Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__SGA: Server=srv-sql-prod-01.tcero.local;Database=SGA;User Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__SIGAP: Server=srv-sql-prod-01.tcero.local;Database=SIGAP;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__SIGIEP: Server=srv-sql-prod-01.tcero.local;Database=SIGIEP;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Siedos: Host=srv-dev-db-02.tcero.local;Port=5445;Pooling=true;Database=srh;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU
+  ConnectionStrings__SigapIntegrador: Server=srv-sql-prod-01.tcero.local;Database=SigapIntegrador;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__SigapIntegradorDW: Server=srv-sql-prod-01.tcero.local;Database=SigapIntegrador;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__ecidade: Host=srv-dev-db-01.tcero.local;Port=5433;Pooling=true;Database=_ontem_e-cidade;User
+    Id=redhat;Password=a5Y+Is&jHLs0D$DU
+  Logging__Path: /tmp/app
+  MongoDbSettings__ConnectionString: mongodb://octopus:9c2649b16d37caf29845@10.83.0.62:27017?authSource=admin
+  Origins: https://piloto-portal-cidadao.tcero.tc.br,piloto-portal-cidadao.tcero.tc.br,https://api-piloto-portal-cidadao.tcero.tc.br,https://tcero.tc.br,http://intranet,https://tce.ro.gov.br,https://pce-web.stage.tcero.tc.br,pce-web.stage.tcero.tc.br,https://radarcontrole.stage.tcero.tc.br,radarcontrole.stage.tcero.tc.br,https://agenda-contas-web.stage.tcero.tc.br,agenda-contas-web.stage.tcero.tc.br
+  Services__Api: https://api-piloto-portal-cidadao.tcero.tc.br
+  Services__Authority: https://identity-piloto-portal-cidadao.tcero.tc.br
+  Services__Octopus: https://piloto-portal-cidadao.tcero.tc.br
+immutable: false
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-03-28T16:26:47Z"
+  name: api
+  namespace: piloto-portal-cidadao
+  resourceVersion: "93498143"
+  uid: cd7e6ac0-884e-4c49-a85d-c6da8c48df62
