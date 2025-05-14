@@ -43,4 +43,3 @@ data:
 kind: ConfigMap
 metadata:
   name: portal-cidadao
-  namespace: piloto-portal-cidadao

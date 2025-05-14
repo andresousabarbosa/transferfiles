@@ -2,9 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: api
-  namespace: piloto-portal-cidadao
 spec:
-  host: api-piloto-portal-cidadao.tcero.tc.br
+  host: production-api.tcero.tc.br
   port:
     targetPort: http
   tls:

@@ -10,6 +10,9 @@ campos_padrao=(
   .metadata.creationTimestamp
   .metadata.generation
   .metadata.managedFields
+  .metadata.namespace
+  .spec.clusterIP
+  .spec.clusterIPs
   .status
 )
 

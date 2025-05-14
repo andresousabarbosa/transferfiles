@@ -15,4 +15,3 @@ data:
 kind: ConfigMap
 metadata:
   name: identity
-  namespace: piloto-portal-cidadao

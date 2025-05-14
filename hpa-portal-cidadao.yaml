@@ -2,7 +2,6 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: portal-cidadao
-  namespace: piloto-portal-cidadao
 spec:
   maxReplicas: 50
   metrics:

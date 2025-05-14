@@ -4,7 +4,6 @@ metadata:
   labels:
     app.kubernetes.io/name: portal-cidadao
   name: portal-cidadao
-  namespace: piloto-portal-cidadao
 spec:
   progressDeadlineSeconds: 600
   replicas: 1

@@ -5,11 +5,7 @@ metadata:
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"portal-cidadao","namespace":"piloto-portal-cidadao"},"spec":{"ports":[{"name":"http","port":8080,"protocol":"TCP","targetPort":8080}],"selector":{"app.kubernetes.io/name":"portal-cidadao"}}}
   name: portal-cidadao
-  namespace: piloto-portal-cidadao
 spec:
-  clusterIP: 172.30.112.67
-  clusterIPs:
-    - 172.30.112.67
   internalTrafficPolicy: Cluster
   ipFamilies:
     - IPv4
