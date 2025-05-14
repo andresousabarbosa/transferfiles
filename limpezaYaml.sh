@@ -11,11 +11,6 @@ campos_para_remover=(
   .metadata.generation
   .metadata.managedFields
   .status
-  .metadata.annotations.openshift.openshift.io/restartedAt
-  .metadata.annotations.creationTimestamp
-  .metadata.annotations.deployment.kubernetes.io/revision
-  .metadata.annotations.kubectl.kubernetes.io/last-applied-configuration
-  .metadata.annotations.kubectl.kubernetes.io/restartedAt
   #.spec.clusterIP # Remova o IP do serviço
   #.spec.nodeName    # Remova o nome do nó do pod
   #.spec.hostIP      # Remove host IP

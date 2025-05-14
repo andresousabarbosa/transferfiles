@@ -1,11 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "92"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"api"},"name":"api","namespace":"piloto-portal-cidadao"},"spec":{"replicas":1,"selector":{"matchLabels":{"app.kubernetes.io/name":"api"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app.kubernetes.io/name":"api"}},"spec":{"containers":[{"env":[{"name":"ASPNETCORE_ENVIRONMENT","value":"Production"}],"envFrom":[{"secretRef":{"name":"api"}}],"image":"registry.tce.ro.gov.br/$PROJETO:$TAG","name":"api","resources":{"limits":{"cpu":"4","memory":"8Gi"},"requests":{"cpu":"1","memory":"500Mi"}}}],"restartPolicy":"Always"}}}}
-    kubectl.kubernetes.io/restartedAt: "2025-04-23T13:00:44+00:00"
   labels:
     app.kubernetes.io/name: api
   name: api
@@ -21,10 +16,6 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kubectl.kubernetes.io/restartedAt: 2025-04-23T15:10:31
-        openshift.openshift.io/restartedAt: "2025-05-14T14:26:53.358Z"
-      creationTimestamp: null
       labels:
         app.kubernetes.io/name: api
     spec:
