@@ -1,50 +1,19 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  creationTimestamp: "2025-03-27T19:27:14Z"
   name: identity
   namespace: piloto-portal-cidadao
-  resourceVersion: "93644158"
-  uid: c2cde598-6481-4398-9b4b-77525d14ba65
 spec:
   maxReplicas: 50
   metrics:
-  - resource:
-      name: cpu
-      target:
-        averageUtilization: 50
-        type: Utilization
-    type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 50
+          type: Utilization
+      type: Resource
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: identity
-status:
-  conditions:
-  - lastTransitionTime: "2025-03-27T19:27:29Z"
-    message: recommended size matches current size
-    reason: ReadyForNewScale
-    status: "True"
-    type: AbleToScale
-  - lastTransitionTime: "2025-04-15T16:30:25Z"
-    message: the HPA was able to successfully calculate a replica count from cpu resource
-      utilization (percentage of request)
-    reason: ValidMetricFound
-    status: "True"
-    type: ScalingActive
-  - lastTransitionTime: "2025-05-14T18:30:14Z"
-    message: the desired replica count is less than the minimum replica count
-    reason: TooFewReplicas
-    status: "True"
-    type: ScalingLimited
-  currentMetrics:
-  - resource:
-      current:
-        averageUtilization: 0
-        averageValue: 1m
-      name: cpu
-    type: Resource
-  currentReplicas: 1
-  desiredReplicas: 1
-  lastScaleTime: "2025-05-09T17:39:08Z"

@@ -42,8 +42,5 @@ data:
   ervices__ReceitaFederal: http://api.tce.ro.gov.br
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2025-03-18T15:18:17Z"
   name: portal-cidadao
   namespace: piloto-portal-cidadao
-  resourceVersion: "81101834"
-  uid: 35f927ef-0fa8-4a44-8e0a-d578cbdba26c

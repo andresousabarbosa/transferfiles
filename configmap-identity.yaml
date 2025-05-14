@@ -2,10 +2,8 @@ apiVersion: v1
 data:
   ASPNETCORE_ENVIRONMENT: Production
   ASPNETCORE_URLS: http://+:8080
-  ConnectionStrings__Ecidade: Host=srv-dev-db-02.tcero.local;Port=5445;Pooling=true;Database=_ontem_srh;User
-    Id=redhat;Password=a5Y+Is&jHLs0D$DU
-  ConnectionStrings__Identity: Server=srv-sql-prod-01.tcero.local;Database=Identity;User
-    Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
+  ConnectionStrings__Ecidade: Host=srv-dev-db-02.tcero.local;Port=5445;Pooling=true;Database=_ontem_srh;User Id=redhat;Password=a5Y+Is&jHLs0D$DU
+  ConnectionStrings__Identity: Server=srv-sql-prod-01.tcero.local;Database=Identity;User Id=redhat;Password=a5Y+Is&jHLs0D$DU;MultipleActiveResultSets=true
   LoginLink__About: https://piloto-portal-cidadao.tcero.tc.br
   LoginLink__CreateAcount: https://piloto-portal-cidadao.tcero.tc.br/account/register
   MongoDbSettings__ConnectionString: mongodb://octopus:9c2649b16d37caf29845@10.83.0.62:27017?authSource=admin
@@ -16,8 +14,5 @@ data:
   Services__Octopus: https://piloto-portal-cidadao.tcero.tc.br
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2025-03-28T16:35:42Z"
   name: identity
   namespace: piloto-portal-cidadao
-  resourceVersion: "54311948"
-  uid: bd9620d0-371c-4b21-985b-46e71df3f785

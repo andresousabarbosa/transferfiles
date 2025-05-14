@@ -5,14 +5,10 @@ metadata:
     deployment.kubernetes.io/revision: "16"
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"portal-cidadao"},"name":"portal-cidadao","namespace":"piloto-portal-cidadao"},"spec":{"replicas":1,"selector":{"matchLabels":{"app.kubernetes.io/name":"portal-cidadao"}},"template":{"metadata":{"labels":{"app.kubernetes.io/name":"portal-cidadao"}},"spec":{"containers":[{"env":null,"envFrom":[{"secretRef":{"name":"portal-cidadao"}},{"configMapRef":{"name":"portal-cidadao"}}],"image":"registry.tce.ro.gov.br/$PROJETO:$TAG","name":"portal-cidadao","resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"250m","memory":"50Mi"}}}],"restartPolicy":"Always"}}}}
-  creationTimestamp: "2025-03-18T15:05:12Z"
-  generation: 36
   labels:
     app.kubernetes.io/name: portal-cidadao
   name: portal-cidadao
   namespace: piloto-portal-cidadao
-  resourceVersion: "87726916"
-  uid: fde003b8-0f24-4395-909e-ba6f5dbcca9c
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -34,59 +30,40 @@ spec:
         app.kubernetes.io/name: portal-cidadao
     spec:
       containers:
-      - envFrom:
-        - secretRef:
-            name: portal-cidadao
-        - configMapRef:
-            name: portal-cidadao
-        image: image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/portal-cidadao:development
-        imagePullPolicy: Always
-        livenessProbe:
-          failureThreshold: 3
-          initialDelaySeconds: 15
-          periodSeconds: 10
-          successThreshold: 1
-          tcpSocket:
-            port: 8080
-          timeoutSeconds: 1
-        name: portal-cidadao
-        readinessProbe:
-          failureThreshold: 3
-          periodSeconds: 10
-          successThreshold: 1
-          tcpSocket:
-            port: 8080
-          timeoutSeconds: 1
-        resources:
-          limits:
-            cpu: 500m
-            memory: 1Gi
-          requests:
-            cpu: 250m
-            memory: 256Mi
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        - envFrom:
+            - secretRef:
+                name: portal-cidadao
+            - configMapRef:
+                name: portal-cidadao
+          image: image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/portal-cidadao:development
+          imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+          name: portal-cidadao
+          readinessProbe:
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2025-03-18T15:05:13Z"
-    lastUpdateTime: "2025-05-05T14:29:31Z"
-    message: ReplicaSet "portal-cidadao-564f8ff688" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2025-05-07T15:30:35Z"
-    lastUpdateTime: "2025-05-07T15:30:35Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 36
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1

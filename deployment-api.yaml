@@ -6,14 +6,10 @@ metadata:
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"api"},"name":"api","namespace":"piloto-portal-cidadao"},"spec":{"replicas":1,"selector":{"matchLabels":{"app.kubernetes.io/name":"api"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app.kubernetes.io/name":"api"}},"spec":{"containers":[{"env":[{"name":"ASPNETCORE_ENVIRONMENT","value":"Production"}],"envFrom":[{"secretRef":{"name":"api"}}],"image":"registry.tce.ro.gov.br/$PROJETO:$TAG","name":"api","resources":{"limits":{"cpu":"4","memory":"8Gi"},"requests":{"cpu":"1","memory":"500Mi"}}}],"restartPolicy":"Always"}}}}
     kubectl.kubernetes.io/restartedAt: "2025-04-23T13:00:44+00:00"
-  creationTimestamp: "2025-03-18T17:30:35Z"
-  generation: 351
   labels:
     app.kubernetes.io/name: api
   name: api
   namespace: piloto-portal-cidadao
-  resourceVersion: "93498471"
-  uid: b24a9824-ba38-45ba-b930-4a7093a6c552
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -33,59 +29,40 @@ spec:
         app.kubernetes.io/name: api
     spec:
       containers:
-      - envFrom:
-        - secretRef:
-            name: api
-        - configMapRef:
-            name: api
-        image: registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:production
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 3
-          initialDelaySeconds: 15
-          periodSeconds: 10
-          successThreshold: 1
-          tcpSocket:
-            port: 8080
-          timeoutSeconds: 1
-        name: api
-        readinessProbe:
-          failureThreshold: 3
-          periodSeconds: 10
-          successThreshold: 1
-          tcpSocket:
-            port: 8080
-          timeoutSeconds: 1
-        resources:
-          limits:
-            cpu: "4"
-            memory: 8Gi
-          requests:
-            cpu: "1"
-            memory: 500Mi
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        - envFrom:
+            - secretRef:
+                name: api
+            - configMapRef:
+                name: api
+          image: registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:production
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+          name: api
+          readinessProbe:
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: "4"
+              memory: 8Gi
+            requests:
+              cpu: "1"
+              memory: 500Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2025-05-14T14:27:02Z"
-    lastUpdateTime: "2025-05-14T14:27:02Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2025-04-22T23:06:32Z"
-    lastUpdateTime: "2025-05-14T14:27:02Z"
-    message: ReplicaSet "api-785f74ddf" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 351
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1

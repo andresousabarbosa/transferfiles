@@ -1,11 +1,8 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  creationTimestamp: "2025-03-27T14:21:29Z"
   name: api
   namespace: piloto-portal-cidadao
-  resourceVersion: "53396254"
-  uid: 903ca98b-2be8-4e34-bc32-6926e2f83300
 spec:
   host: api-piloto-portal-cidadao.tcero.tc.br
   port:
@@ -155,13 +152,3 @@ spec:
     name: api
     weight: 100
   wildcardPolicy: None
-status:
-  ingress:
-  - conditions:
-    - lastTransitionTime: "2025-03-27T14:21:29Z"
-      status: "True"
-      type: Admitted
-    host: api-piloto-portal-cidadao.tcero.tc.br
-    routerCanonicalHostname: router-default.apps.ocp01.tcero.tc.br
-    routerName: default
-    wildcardPolicy: None
