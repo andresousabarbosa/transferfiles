@@ -24,7 +24,7 @@ spec:
                 name: api
             - configMapRef:
                 name: api
-          image: image-registry.openshift-image-registry.svc:5000/production-portal-cidadao/api:production
+          image: image-registry.openshift-image-registry.svc:5000/production-api-geral/api:production
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
