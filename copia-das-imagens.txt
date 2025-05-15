@@ -1,5 +1,49 @@
-oc create imagestream api -n production-api-geral
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: api-geral
+  namespace: piloto-portal-cidadao
+spec:
+  lookupPolicy:
+    local: true
+
+
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api-geral
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/identity
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/piloto-portal-cidao
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/portal-cidadao
+default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/ubi8
+
+#na Namespace(api)
+
+oc create rolebinding <nome-rolebinding> \
+  --serviceaccount=<nome-service-account> \
+  --role=system:image-puller \
+  --namespace=production-api-geral \
+  --user=<nome-usuario>
+
+#na Namespace(piloto-portal-api)
+oc create rolebinding builder-pull-from-piloto \
+  --serviceaccount=builder \
+  --role=system:image-puller \
+#  --namespace=piloto-portal-cidadao (Comentei)
+
+oc policy add-role-to-user \
+system:image-puller system:system:serviceaccount:production-api-geral:default \
+--namespace=piloto-portal-cidadao
+
+oc delete imagestream api -n production-api-geral
+oc create imagestream api -n production-api-geral --lookup-local=true
 oc tag registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:production production-api-geral/api:production
+oc describe imagestream.image.openshift.io/api -n production-api-geral 
+###
+oc tag default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api:production production-api-geral/api:production --insecure=true
+oc tag default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api
+
+###
+
+oc apply -n production-api-geral -f production-api-geral
 
 oc create imagestream identity -n production-identity
 oc tag image-registry.openshift-image-registry.svc:5000/production-identity/identity:development production-identity/identity:development
