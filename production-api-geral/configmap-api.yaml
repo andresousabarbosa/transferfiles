@@ -29,10 +29,10 @@ data:
   ConnectionStrings__ecidade: Host=srv-dev-db-01.tcero.local;Port=5433;Pooling=true;Database=_ontem_e-cidade;User Id=redhat;Password=a5Y+Is&jHLs0D$DU
   Logging__Path: /tmp/app
   MongoDbSettings__ConnectionString: mongodb://octopus:9c2649b16d37caf29845@10.83.0.62:27017?authSource=admin
-  Origins: https://piloto-portal-cidadao.tcero.tc.br,piloto-portal-cidadao.tcero.tc.br,https://api-piloto-portal-cidadao.tcero.tc.br,https://tcero.tc.br,http://intranet,https://tce.ro.gov.br,https://pce-web.stage.tcero.tc.br,pce-web.stage.tcero.tc.br,https://radarcontrole.stage.tcero.tc.br,radarcontrole.stage.tcero.tc.br,https://agenda-contas-web.stage.tcero.tc.br,agenda-contas-web.stage.tcero.tc.br
-  Services__Api: https://api-piloto-portal-cidadao.tcero.tc.br
-  Services__Authority: https://identity-piloto-portal-cidadao.tcero.tc.br
-  Services__Octopus: https://piloto-portal-cidadao.tcero.tc.br
+  Origins: https://production-portal-cidadao.tcero.tc.br,production-portal-cidadao.tcero.tc.br,https://production-api.tcero.tc.br,https://tcero.tc.br,http://intranet,https://tce.ro.gov.br,https://pce-web.stage.tcero.tc.br,pce-web.stage.tcero.tc.br,https://radarcontrole.stage.tcero.tc.br,radarcontrole.stage.tcero.tc.br,https://agenda-contas-web.stage.tcero.tc.br,agenda-contas-web.stage.tcero.tc.br
+  Services__Api: https://production-api.tcero.tc.br
+  Services__Authority: https://production-identity.tcero.tc.br
+  Services__Octopus: https://production-portal-cidadao.tcero.tc.br
 immutable: false
 kind: ConfigMap
 metadata:

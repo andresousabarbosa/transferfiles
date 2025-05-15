@@ -1,0 +1,8 @@
+oc create imagestream api -n production-api-geral
+oc tag registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:production production-api-geral/api:production
+
+oc create imagestream identity -n production-identity
+oc tag image-registry.openshift-image-registry.svc:5000/production-identity/identity:development production-identity/identity:development
+
+oc create imagestream identity -n production-portal-cidadao
+oc tag image-registry.openshift-image-registry.svc:5000/production-portal-cidadao/portal-cidadao:development production-identity/portal-cidadao:development

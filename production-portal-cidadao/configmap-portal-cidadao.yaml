@@ -29,14 +29,14 @@ data:
   QueueConfig__TelegramQueueName: telegram_queue_prod
   Services__AgendaApi: https://agenda-contas-api.tcero.tc.br
   Services__AgendaWeb: https://agendadecontas.tcero.tc.br
-  Services__Api: https://api-piloto-portal-cidadao.tcero.tc.br
-  Services__Authority: https://identity-piloto-portal-cidadao.tcero.tc.br
+  Services__Api: https://production-api.tcero.tc.br
+  Services__Authority: https://production-identity.tcero.tc.br
   Services__Certidao: https://tcero.tc.br/certidao/validarconsulta.asp
   Services__Comunic: https://comunicworker.tcero.tc.br
   Services__ComunicWeb: https://comunic.tcero.tc.br
   Services__PceCore: http://intranet/pcecore/api
   Services__SolicitarAcessoSistema: https://jira.tcero.tc.br/servicedesk/customer/portal/1/create/144/
-  Services__UrlOctopus: https://piloto-portal-cidadao.tcero.tc.br
+  Services__UrlOctopus: https://production-portal-cidadao.tcero.tc.br
   Tarja__Show: "false"
   eatureManagement__Push: "true"
   ervices__ReceitaFederal: http://api.tce.ro.gov.br

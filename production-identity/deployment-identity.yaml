@@ -30,7 +30,7 @@ spec:
                 name: identity
             - configMapRef:
                 name: identity
-          image: image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/identity:development
+          image: image-registry.openshift-image-registry.svc:5000/production-identity/identity:development
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
