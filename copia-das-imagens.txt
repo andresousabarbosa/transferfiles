@@ -6,6 +6,17 @@ default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cida
 default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/portal-cidadao
 default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/ubi8
 
+nonroot
+
+oc import-image api:nonroot \
+  --from=api:nonroot \
+  --confirm \
+  -n production-api-geral
+
+oc import-image api:nonroot
+--from=image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/api --confirm
+--from=docker.io/piloto-portal-cidadao/api:nonroot --confirm
+--from=image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/api:nonroot --confirm
 
 oc policy add-role-to-user \
 system:image-puller system:system:serviceaccount:production-api-geral:default \
@@ -19,9 +30,22 @@ oc describe imagestream.image.openshift.io/api -n production-api-geral
 oc tag default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api:production production-api-geral/api:production --insecure=true
 oc tag default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/api
 
-###
+### 
+
+
+###Skopeo
+
+skopeo copy \
+  --src-creds=${SOURCE_CREDS} \
+  --dest-creds=${SOURCE_CREDS} \
+  docker://registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:nonroot \
+  docker://registry-ocp.tcero.tc.br/production-api-geral/api:nonroot
+
+########
 
 oc apply -n production-api-geral -f production-api-geral
+oc apply -n production-identity -f production-identity
+oc apply -n production-portal-cidadao -f production-portal-cidadao
 
 oc create imagestream identity -n production-identity
 oc tag image-registry.openshift-image-registry.svc:5000/production-identity/identity:development production-identity/identity:development
