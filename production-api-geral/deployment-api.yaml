@@ -24,7 +24,7 @@ spec:
                 name: api
             - configMapRef:
                 name: api
-          image: registry-ocp.tcero.tc.br/piloto-portal-cidadao/piloto-portal-cidadao/api:production
+          image: registry-ocp.tcero.tc.br/piloto-portal-cidadao/api:nonroot
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
