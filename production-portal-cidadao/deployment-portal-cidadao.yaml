@@ -27,7 +27,7 @@ spec:
                 name: portal-cidadao
             - configMapRef:
                 name: portal-cidadao
-          image: image-registry.openshift-image-registry.svc:5000/production-portal-cidadao/portal-cidadao:development
+          image: image-registry.openshift-image-registry.svc:5000/piloto-portal-cidadao/portal-cidadao:development
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
