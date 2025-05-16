@@ -30,6 +30,10 @@ skopeo copy \
 
 ########
 
+oc patch is api -p '{"spec":{"lookupPolicy":{"local":true}}}' -n production-api-geral
+oc patch is identity -p '{"spec":{"lookupPolicy":{"local":true}}}' -n production-identity
+oc patch is portal-cidadao -p '{"spec":{"lookupPolicy":{"local":true}}}' -n production-portal-cidadao
+
 oc apply -n production-api-geral -f production-api-geral
 oc apply -n production-identity -f production-identity
 oc apply -n production-portal-cidadao -f production-portal-cidadao

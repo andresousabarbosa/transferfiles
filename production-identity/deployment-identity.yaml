@@ -30,7 +30,7 @@ spec:
                 name: identity
             - configMapRef:
                 name: identity
-          image: registry-ocp.tcero.tc.br/production-identity/identity:development
+          image: identity:development
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
