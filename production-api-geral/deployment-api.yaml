@@ -24,7 +24,7 @@ spec:
                 name: api
             - configMapRef:
                 name: api
-          image: production-api-geral/api:nonroot
+          image: registry-ocp.tcero.tc.br/production-api-geral/api:nonroot
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
