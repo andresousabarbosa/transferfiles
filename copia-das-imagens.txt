@@ -8,6 +8,7 @@ default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cida
 default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/piloto-portal-cidadao/ubi8
 
 ###Skopeo
+SOURCE_CREDS=$(oc whoami):$(oc whoami -t)
 
 skopeo copy \
   --src-creds=${SOURCE_CREDS} \
@@ -32,3 +33,7 @@ skopeo copy \
 oc apply -n production-api-geral -f production-api-geral
 oc apply -n production-identity -f production-identity
 oc apply -n production-portal-cidadao -f production-portal-cidadao
+
+oc delete -n production-api-geral -f production-api-geral
+oc delete -n production-identity -f production-identity
+oc delete -n production-portal-cidadao -f production-portal-cidadao
