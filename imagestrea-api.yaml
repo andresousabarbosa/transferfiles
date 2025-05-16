@@ -1,0 +1,22 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: "2025-05-15T20:29:12Z"
+  generation: 1
+  name: api
+  namespace: production-api-geral
+  resourceVersion: "94541811"
+  uid: f3a37115-62f7-4d78-81fe-2ad3f3b24b6d
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/production-api-geral/api
+  publicDockerImageRepository: default-route-openshift-image-registry.apps.ocp01.tcero.tc.br/production-api-geral/api
+  tags:
+  - items:
+    - created: "2025-05-15T20:29:12Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/production-api-geral/api@sha256:1bbc3080dc26ff29c031d1d1c2062bff3af10fe1fa82c5b2ada53c43d0e5e435
+      generation: 1
+      image: sha256:1bbc3080dc26ff29c031d1d1c2062bff3af10fe1fa82c5b2ada53c43d0e5e435
+    tag: nonroot
