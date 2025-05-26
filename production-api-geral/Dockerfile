@@ -22,18 +22,18 @@ FROM base AS final
 WORKDIR /app
 #### CRIAR GRUPO E USUARIO
 USER root
-RUN addgroup \
-    --gid=$APP_UID \
-    app \
-&& adduser \
-    --uid=$APP_UID \
-    --ingroup=app \
-    --disabled-password \
-    app
+# RUN addgroup \
+#     --gid=$APP_UID \
+#     app \
+# && adduser \
+#     --uid=$APP_UID \
+#     --ingroup=app \
+#     --disabled-password \
+#     app
 ##############################
 
-# RUN chgrp -R 0 /app && \
-#     chmod -R g=u /app
+RUN chgrp -R 0 /app && \
+    chmod -R g=u /app
 
 #PERMISSAO na pasta da aplicacao
 #RUN chown -R $APP_UID:app /app
