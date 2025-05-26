@@ -7,16 +7,16 @@ ENV APP_UID=1654
 ##############
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["src/API/API.csproj", "src/API/"]
-COPY ["src/API.Shared/API.Shared.csproj", "src/API.Shared/"]
-COPY ["src/API.Services/API.Services.csproj", "src/API.Services/"]
-RUN dotnet restore "src/API/API.csproj"
-COPY . .
-WORKDIR "/src/src/API"
-RUN dotnet build "API.csproj" -c Release -o /app/build
+# COPY ["src/API/API.csproj", "src/API/"]
+# COPY ["src/API.Shared/API.Shared.csproj", "src/API.Shared/"]
+# COPY ["src/API.Services/API.Services.csproj", "src/API.Services/"]
+# RUN dotnet restore "src/API/API.csproj"
+# COPY . .
+# WORKDIR "/src/src/API"
+# RUN dotnet build "API.csproj" -c Release -o /app/build
  
-FROM build AS publish
-RUN dotnet publish "API.csproj" -c Release -o /app/publish
+# FROM build AS publish
+# RUN dotnet publish "API.csproj" -c Release -o /app/publish
  
 FROM base AS final
 WORKDIR /app
