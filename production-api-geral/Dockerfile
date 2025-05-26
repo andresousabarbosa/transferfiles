@@ -41,7 +41,7 @@ RUN chgrp -R 0 /app && \
 # COPY --from=publish /app/publish .
 ENV TZ=America/Porto_Velho
 USER $APP_UID
-RUN echo "Teste de escrita de arquivo." > /app/texte.txt
+RUN echo "Teste de escrita de arquivo." > /app/teste.txt
 #ENTRYPOINT ["dotnet", "API.dll"]
 ### Entrypoint de teste
-ENTRYPOINT ["cat", "/app/texte.txt"]
+ENTRYPOINT ["cat", "/app/teste.txt"]
