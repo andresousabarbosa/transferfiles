@@ -21,18 +21,19 @@ RUN dotnet publish "API.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 #### CRIAR GRUPO E USUARIO
-# RUN addgroup \
-#     --gid=$APP_UID \
-#     app \
-# && adduser \
-#     --uid=$APP_UID \
-#     --ingroup=app \
-#     --disabled-password \
-#     app
-##############################
 USER root
-RUN chgrp -R 0 /app && \
-    chmod -R g=u /app
+RUN addgroup \
+    --gid=$APP_UID \
+    app \
+&& adduser \
+    --uid=$APP_UID \
+    --ingroup=app \
+    --disabled-password \
+    app
+##############################
+
+# RUN chgrp -R 0 /app && \
+#     chmod -R g=u /app
 
 #PERMISSAO na pasta da aplicacao
 #RUN chown -R $APP_UID:app /app
@@ -40,6 +41,7 @@ RUN chgrp -R 0 /app && \
 COPY --from=publish /app/publish .
 ENV TZ=America/Porto_Velho
 USER $APP_UID
+RUN echo "Teste" > /app/texte.txt
 ENTRYPOINT ["dotnet", "API.dll"]
 ### Entrypoint de teste
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
