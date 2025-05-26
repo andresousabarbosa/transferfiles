@@ -42,6 +42,6 @@ RUN chgrp -R 0 /app && \
 ENV TZ=America/Porto_Velho
 USER $APP_UID
 RUN echo "Teste" > /app/texte.txt
-ENTRYPOINT ["dotnet", "API.dll"]
+#ENTRYPOINT ["dotnet", "API.dll"]
 ### Entrypoint de teste
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["cat", "/app/texte.txt"]
