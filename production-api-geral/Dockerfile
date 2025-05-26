@@ -38,7 +38,7 @@ RUN addgroup \
 #PERMISSAO na pasta da aplicacao
 #RUN chown -R $APP_UID:app /app
  
-COPY --from=publish /app/publish .
+# COPY --from=publish /app/publish .
 ENV TZ=America/Porto_Velho
 USER $APP_UID
 RUN echo "Teste" > /app/texte.txt
