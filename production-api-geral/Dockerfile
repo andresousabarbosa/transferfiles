@@ -32,4 +32,4 @@ USER $APP_UID
 RUN echo "Teste de escrita de arquivo." > /app/teste.txt
 #ENTRYPOINT ["dotnet", "API.dll"]
 ### Entrypoint de teste
-ENTRYPOINT ["tail -f", "/app/teste.txt"]
+ENTRYPOINT ["tail", "-f", "/app/teste.txt"]
