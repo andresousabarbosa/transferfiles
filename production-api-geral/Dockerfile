@@ -20,28 +20,16 @@ WORKDIR /src
  
 FROM base AS final
 WORKDIR /app
-#### CRIAR GRUPO E USUARIO
-USER root
-# RUN addgroup \
-#     --gid=$APP_UID \
-#     app \
-# && adduser \
-#     --uid=$APP_UID \
-#     --ingroup=app \
-#     --disabled-password \
-#     app
-##############################
 
+USER root
+#PERMISSAO na pasta da aplicacao
 RUN chgrp -R 0 /app && \
     chmod -R g=u /app
 
-#PERMISSAO na pasta da aplicacao
-#RUN chown -R $APP_UID:app /app
- 
 # COPY --from=publish /app/publish .
 ENV TZ=America/Porto_Velho
 USER $APP_UID
 RUN echo "Teste de escrita de arquivo." > /app/teste.txt
 #ENTRYPOINT ["dotnet", "API.dll"]
 ### Entrypoint de teste
-ENTRYPOINT ["cat", "/app/teste.txt"]
+ENTRYPOINT ["tail -f", "/app/teste.txt"]
